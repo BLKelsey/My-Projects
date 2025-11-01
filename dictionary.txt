@@ -1,0 +1,7 @@
+auto
+car
+auto
+car
+garbage
+roska:garbage
+laukku:bag
