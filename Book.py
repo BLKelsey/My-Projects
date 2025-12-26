@@ -15,6 +15,6 @@ everest = Book("High Adventure", "Edmund Hillary", "autobiography", 1956)
 # Print details about the books
 print()
 print(f"{python.author}: {python.name} ({python.year})")
-print(f"The genre of the book {everest.name} is {everest.genre}")
+print(f"The genre of the book: {everest.name} ({everest.genre})")
 
 

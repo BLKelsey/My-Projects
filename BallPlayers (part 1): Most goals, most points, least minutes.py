@@ -6,47 +6,28 @@ class BallPlayer:
         self.assists = assists
         self.minutes = minutes
 
-    def total_points(self):
-        return self.goals + self.assists
-
-    def most_goals(self, players):
-        top_player = players[0]
-        for player in players:
-            if player.goals > top_player.goals:
-                top_player = player
-        return top_player
-
-    def most_points(self, players):
-        top_player = players[0]
-        top_points = players[0].total_points()
-        for player in players:
-            current_points = player.total_points()
-            if current_points > top_points:
-                top_player = player
-                top_points = current_points
-        return top_player
-
-    # Used for "Most Goals:"
     def __str__(self):
-        return f"Top Player: {self.name} with {self.goals} goals"
+        return f"{self.name}: shirt number: ({self.shirt_number}) with only {self.minutes} minutes play time"
 
-    # Used for "Most Points:"
-    def points_str(self):
-        total = self.total_points()
-        return f"({self.name} {total} points: {self.goals} goals + {self.assists} assists)"
+
+def least_minutes(players):
+    min_player = players[0]
+    min_minutes = min_player.minutes
+
+    for player in players:
+        if player.minutes < min_minutes:
+            min_player = player
+            min_minutes = player.minutes
+    return min_player
+
 
 # ---------- TEST PROGRAM ----------
+if __name__ == "__main__":
+    player1 = BallPlayer("Archie Bonkers", 13, 5, 12, 46)
+    player2 = BallPlayer("Speedy Tickets", 7, 2, 26, 55)
+    player3 = BallPlayer("Cruella De Hill", 9, 1, 32, 26)
+    player4 = BallPlayer("Devilled Tasmanian", 12, 1, 11, 41)
+    player5 = BallPlayer("Donald Quack", 4, 3, 9, 12)
 
-p1 = BallPlayer("Alice", 10, 8, 3, 900)
-p2 = BallPlayer("Bob", 7, 12, 4, 1100)
-p3 = BallPlayer("Charlie", 9, 5, 6, 800)
-
-players = [p1, p2, p3]
-
-# Most goals (uses __str__)
-top_goal_player = p1.most_goals(players)
-print("Most Goals:", top_goal_player)
-
-# Most points (uses points_str)
-top_point_player = p1.most_points(players)
-print("Most Points:", top_point_player.points_str())
+    team = [player1, player2, player3, player4, player5]
+    print(least_minutes(team))

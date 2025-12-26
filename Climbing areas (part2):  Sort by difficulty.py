@@ -20,9 +20,9 @@ class ClimbingArea:
         return len(self.routes)
 
     def __str__(self):
-         # find the longest route and summarize
-         hardest = max(self.routes, key=lambda route: route.grade)
-         return f"{self.name}, {len(self.routes)} , {self.grade}"
+        # find the hardest route (by grade)
+        hardest = max(self.routes, key=lambda route: route.grade)
+        return f"{self.name}, {len(self.routes)} routes, hardest {hardest.grade}"
 
 def sort_by_difficulty(routes: list):
     # Sort routes by their difficulty
