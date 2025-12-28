@@ -15,5 +15,5 @@ s1 = CourseAttempt("Peter Python", "Introduction to Programming", 3)            
 s2 = CourseAttempt("Olivia C. Objective", "Introduction to Programming", 5)         # Creates second CourseAttempt instance (same course)
 s3 = CourseAttempt("Peter Python", "Advanced Course in Programming", 2)             # Creates third CourseAttempt instance (different course)
 
-for name in course_names([s1, s2, s3]):                                              # Calls the function with the list of attempts and iterates over result
+for name in course_names([s1, s2, s3]):                                              # Calls the function (course_names) with the list of attempts and iterates over result
     print(name)                                                                      # Prints each unique course name (sorted alphabetically)
