@@ -1,5 +1,3 @@
-# The function should return a new list of CourseAttempt objects, including only those items from the original list whose grade is at least 1.
-
 class CourseAttempt:
     def __init__(self, student_name, course_name, grade):            # Constructor method (initializer)
         self.student_name = student_name                             # Stores the student's name
