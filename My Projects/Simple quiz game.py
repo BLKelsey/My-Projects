@@ -41,4 +41,4 @@ for i in range(len(questions)):                         # Loops through each que
         print("Sorry, that's incorrect.\n")             # Informs the user the answer was wrong
 
 print("You completed the quiz!")                        # Indicates the quiz has ended
-print("Your score was:", score,
+print("Your score was:", score)
