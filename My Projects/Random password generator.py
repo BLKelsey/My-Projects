@@ -1,7 +1,5 @@
 import random
 
-# from Lengths import lengths
-
 letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 numbers = "0123456789"
 symbols = "!@#$%&+^"
@@ -14,5 +12,5 @@ password = ""
 
 for i in range(length):
     password += random.choice(all_letters)
-
-print(password)
+print()
+print("Password = "+ password)
