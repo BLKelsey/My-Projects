@@ -1,24 +1,37 @@
-import requests                                               # Imports the requests library for making HTTP requests
+import requests
 
-city_name = input("Enter city name: ")                        # Asks the user to enter a city name
-state_code = input("Enter state code (e.g., OH, IL, MO): ")   # Asks the user for state
+# Get user input
+city_name = input("Enter city name: ").strip()
+state_code = input("Enter state code (press Enter if none): ").strip()
+country_code = input("Enter country code (e.g., US, LB, FR): ").strip()
 
-api_key = "4391550fbe090859f16e877942ba2271"                   # Stores the OpenWeatherMap API key (keep this private)
+# IMPORTANT: Replace with your real API key
+api_key = "4391550fbe090859f16e877942ba2271"
 
-api_url = (                                                    # Build the full API request URL
-    "https://api.openweathermap.org/data/2.5/weather"         # Base OpenWeatherMap weather endpoint
-    + "?q=" + city_name + "," + state_code                    # City, state remove ambiguity
-    + "&units=imperial"                                       # Request temperature in Fahrenheit
-    + "&appid=" + api_key                                     # Attach your API key for authentication
+# Build the location string correctly
+if state_code and country_code:
+    location = f"{city_name},{state_code},{country_code}"
+elif country_code:
+    location = f"{city_name},{country_code}"
+else:
+    location = city_name
+
+# Build API URL
+api_url = (
+    "https://api.openweathermap.org/data/2.5/weather"
+    + "?q=" + location
+    + "&units=imperial"
+    + "&appid=" + api_key
 )
 
-response = requests.get(api_url)                                # Sends the GET request to the weather API
-data = response.json()                                          # Converts the API response from JSON to a Python dictionary
+# Make request
+response = requests.get(api_url)
+data = response.json()
 
-# Check if request was successful
-if response.status_code != 200:                                 # If the API did NOT return success
-    print("Error:", data.get("message", "Something went wrong"))# Print the error message from the API
+# Handle response
+if response.status_code != 200:
+    print("Error:", data.get("message", "Something went wrong"))
 else:
-    print("City:", data["name"])                               # Displays the city name from the response
-    print("Temperature:", data["main"]["temp"], "°F")          # Displays the current temperature
-    print("Weather:", data["weather"][0]["description"])       # Displays a short weather description
+    print("City:", data["name"])
+    print("Temperature:", data["main"]["temp"], "°F")
+    print("Weather:", data["weather"][0]["description"])
