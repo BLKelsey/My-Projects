@@ -1,8 +1,7 @@
 import random
 
-jokes = [
-    "What kind of shoes to frogs wear?",
-    "I'm afraid for the calendar. Its days are numbered.",
+dad_jokes = [
+   "I'm afraid for the calendar. Its days are numbered.",
     "Singing in the shower is fun until you get soap in your mouth. Then it's a soap opera.",
     "When two vegans get in an argument, is it still called a beef?",
     "Do you wanna box for your leftovers? No, but I'll wrestle you for them!",
@@ -23,9 +22,9 @@ jokes = [
     ]
 
 input("Hit ENTER to get a random joke!")
-random.choice(jokes)
+random.choice(dad_jokes)
 print()
 
-print(random.choice(jokes))
+print(random.choice(dad_jokes))
 
 
