@@ -32,7 +32,7 @@ user_choice = "yes"                 # Start the loop by assuming the user wants 
 
 while user_choice == "yes":                    # Keep looping as long as the user types "yes"
     total_proverbs = 26                        # Total number of proverbs in the list
-    max_index = total_proverbs - 1             # Highest valid index (lists start at 0)
+    max_index = total_proverbs - 1             # Highest valid index (lists start at 0). So, in python, lists start at 0, which makes it "see" 25 total proverbs
     random_index = random.randint(0, 25)  # Pick a random index between 0 and 25
     print()
     print(proverbs[random_index])              # Print a random proverb from the list
