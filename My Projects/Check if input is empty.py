@@ -7,5 +7,5 @@ while True:
         print("You must enter something. Please try again.")
         print()
 
-print( "Thank you. You entered: " + user_input)
+print( "Thank you. You entered: ===> " + user_input)
 
