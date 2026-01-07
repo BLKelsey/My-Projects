@@ -5,7 +5,12 @@ items = [
     "Television",
     "Stovetop",
     "Bottle",
-    'Barstool'
+    'Barstool',
+    "Construction",
+    "Outdoors",
+    "Gym",
+    "Nuclear",
+    "Pantry"
 ]
 display_number = 1                     # Start numbering at 1 for human-friendly display
 
@@ -24,5 +29,5 @@ if index_pos < 0 or index_pos >= len(items):   # Check if index is out of range
 else:
     print("You chose item number:", user_number)       # Confirm user's choice
     print()
-    print("In Python: this item is at index: ==>", index_pos)  # Explain the index
+    print("In Python: THIS item is at INDEX: ==>", index_pos)  # Explain the index
     print("The item is: ==> ", items[index_pos])     # Display the selected item
