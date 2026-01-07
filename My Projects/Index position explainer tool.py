@@ -25,4 +25,4 @@ else:
     print("You chose item number:", user_number)       # Confirm user's choice
     print()
     print("In Python: this item is at index: ==>", index_pos)  # Explain the index
-    print("The item is: ==>", items[index_pos])     # Display the selected item
+    print("The item is: ==> ", items[index_pos])     # Display the selected item
