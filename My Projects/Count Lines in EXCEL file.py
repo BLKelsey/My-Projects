@@ -8,7 +8,7 @@ sheet = workbook.active                     # Select the first (active) workshee
 
 row_count = 0                               # Start counting rows at zero
 
-for row in sheet.iter_rows(values_only=True):  # Go through each row in the sheet
+for row in sheet.iter_rows(values_only=True):  # Go through each row in the sheet.  iter_rows() literally means:“Go through the worksheet one row at a time.”
     row_count += 1                             # Add 1 for each row found
 
 print("Number of rows: ", row_count)        # Display the total number of rows
