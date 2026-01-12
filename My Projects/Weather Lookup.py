@@ -5,7 +5,7 @@ city_name = input("Enter city name: ").strip()
 state_code = input("Enter state code (press Enter if none): ").strip()
 country_code = input("Enter country code (e.g., US, LB, FR): ").strip()
 
-# IMPORTANT: Replace with your real API key
+# Get your API key from api site
 api_key = "4391550fbe090859f16e877942ba2271"
 
 # Build the location string correctly
