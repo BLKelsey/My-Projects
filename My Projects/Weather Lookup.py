@@ -8,7 +8,7 @@ country_code = input("Enter country code (e.g., US, LB, FR): ").strip()
 # Get your API key from api site
 api_key = "4391550fbe090859f16e877942ba2271"
 
-# Build the location string correctly
+# Build the location string correctly - test
 if state_code and country_code:
     location = f"{city_name},{state_code},{country_code}"
 elif country_code:
