@@ -8,11 +8,13 @@ import time                                                       # Used for pau
 # Start browser
 # ─────────────────────────────
 driver = webdriver.Chrome()                         # Launch a new Chrome browser
+wait = WebDriverWait(driver, 10)                    # Reusable wait object
+
 driver.get("https://thefederalist.com")             # Open the Federalist homepage
 
 # Make sure page loads
-WebDriverWait(driver, 10).until(                    # Wait up to 10 seconds until condition is met
-    EC.presence_of_element_located((By.TAG_NAME, "body"))  # Page body exists = page loaded
+wait.until(
+    EC.presence_of_element_located((By.TAG_NAME, "body"))
 )
 
 driver.maximize_window()                            # Maximize browser window (avoid mobile layout)
@@ -21,38 +23,37 @@ print("Home page loaded")                           # Console message for debugg
 # ─────────────────────────────
 # Click "Latest"
 # ─────────────────────────────
-latest_link = WebDriverWait(driver, 15).until(      # Wait up to 15 seconds for the link
-    EC.element_to_be_clickable(                            # Ensure the link can actually be clicked
-        (By.XPATH, "//a[normalize-space()='Latest']")      # Find link with visible text "Latest"
+latest_link = WebDriverWait(driver, 15).until(
+    EC.element_to_be_clickable(
+        (By.XPATH, "//a[normalize-space()='Latest']")
     )
 )
 
-print("Clicking Latest...")                          # Debug message
-latest_link.click()                                  # Click the "Latest" link
+print("Clicking Latest...")
+latest_link.click()
 
 # ─────────────────────────────
 # Verify navigation
 # ─────────────────────────────
-WebDriverWait(driver, 15).until(                    # Wait until navigation finishes
+WebDriverWait(driver, 15).until(
     EC.url_contains("latest")
-    # URL must contain "latest"
 )
 
-print("Latest page loaded")                          # Confirmation message
+print("Latest page loaded")
 
 # ─────────────────────────────
 # Slow scrolling
 # ─────────────────────────────
-print("Starting slow scroll...")                    # Debug message
+print("Starting slow scroll...")
 
-for i in range(8):                                   # Repeat scrolling 8 times
-    driver.execute_script("window.scrollBy(0, 90);")  # Scroll down 70 pixels
-    time.sleep(1)                                     # Wait 3 second between scrolls
+for i in range(8):
+    driver.execute_script("window.scrollBy(0, 90);")
+    time.sleep(1)
 
-print("Scrolling finished")                         # Scroll complete
+print("Scrolling finished")
 
 # ─────────────────────────────
 # Keep browser open
 # ─────────────────────────────
-input("Press ENTER to close the browser...")        # Pause script until user presses Enter
-driver.quit()                                       # Close the browser cleanly
+input("Press ENTER to close the browser...")
+driver.quit()
