@@ -21,7 +21,7 @@ search_box = wait.until(
 search_box.send_keys("Selenium automation best practices")
 
 # Submit search
-search_box.send_keys(Keys.RETURN)
+search_box.send_keys(Keys.ENTER)
 
 # ✅ Correct wait for DuckDuckGo results
 wait.until(
